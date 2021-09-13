@@ -1,4 +1,4 @@
-# EVA_style
+# EVA style image
 
 In this repository, I transform a regular image into a image with EVA style (In fact, it is One Last Kiss style). 
 
@@ -12,19 +12,17 @@ All steps is described as following:
 5. Apply mini value filtering;
 6. Apply Overlay, which is however, not work in my code. And I replace it with my own designed Dark Areas Color Algorithm. 
 
-![1 Original image](https://github.com/LeonardLi98/EVA_style/raw/main/img/Asuka.jpg)
+![Original image](https://github.com/LeonardLi98/EVA_style/raw/main/img/Asuka.jpg)
 
-![2 Gray](https://github.com/LeonardLi98/EVA_style/raw/main/img/gray.jpg)
+![Result](https://github.com/LeonardLi98/EVA_style/raw/main/img/result.jpg)
 
-![3 Opposite](https://github.com/LeonardLi98/EVA_style/raw/main/img/opposite.jpg)
+# Available requirements
 
-![4 Sketch](https://github.com/LeonardLi98/EVA_style/raw/main/img/sketch.jpg)
-
-![5 Filtering](https://github.com/LeonardLi98/EVA_style/raw/main/img/mini_value_filtering.jpg)
-
-![6 Result](https://github.com/LeonardLi98/EVA_style/raw/main/img/result.jpg)
-
-Available requirements:
 - numpy=1.19.5
 - matplotlib=3.4.1
 - scipy=1.6.3
+
+# Acknowledge
+
+Thanks to [黑暗之环](https://www.bilibili.com/video/BV1Uf4y1n7zK), [鹿枫a](https://space.bilibili.com/29121574) and [
+Matrix_11](https://blog.csdn.net/matrix_space/category_9263542_3.html).
