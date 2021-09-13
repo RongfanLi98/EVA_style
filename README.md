@@ -26,3 +26,9 @@ All steps is described as following:
 
 Thanks to [黑暗之环](https://www.bilibili.com/video/BV1Uf4y1n7zK), [鹿枫a](https://space.bilibili.com/29121574) and [
 Matrix_11](https://blog.csdn.net/matrix_space/category_9263542_3.html).
+
+I really like Asuka, so I made her the cover.
+
+I would be very happy if he helped you. And I would work harder if you donated to support me (scan the QR code).
+
+![Result](https://github.com/LeonardLi98/EVA_style/raw/main/img/support.jpg)
