@@ -1,6 +1,5 @@
 import numpy as np
-import math
-import matplotlib
+from math import floor
 import matplotlib.pyplot as plt
 
 
@@ -27,8 +26,8 @@ def resize(src_img, height, width):
             src_y = float((i + 0.5) * scale_h - 0.5)
 
             # 向下取整，代表靠近源点的左上角的那一点的行列号
-            src_x_int = math.floor(src_x)
-            src_y_int = math.floor(src_y)
+            src_x_int = floor(src_x)
+            src_y_int = floor(src_y)
 
             # 取出小数部分，用于构造权值
             src_x_float = src_x - src_x_int
@@ -296,61 +295,14 @@ def gray(img, method=2):
     return img_gray
 
 
-def show(img, cmap=None):
+def save(path, img, cmap=None, dpi=300):
     fig, ax = plt.subplots(nrows=1, ncols=1, tight_layout=True)
     ax.axis('off')
     if cmap:
         plt.imshow(img.astype(np.uint8), cmap="gray")
     else:
         plt.imshow(img.astype(np.uint8))
-    #         plt.savefig("./img/color.jpg")
-
-
-def save(img, cmap=None, name="result"):
-    fig, ax = plt.subplots(nrows=1, ncols=1, tight_layout=True)
-    ax.axis('off')
-    if cmap:
-        plt.imshow(img.astype(np.uint8), cmap="gray")
-    else:
-        plt.imshow(img.astype(np.uint8))
-    plt.savefig("./img/{}.jpg".format(name), dpi=300)
-
-
-def create_color_map(height, width):
-    # 手动创造一个 height, width 的渐变矩阵
-    # https://matplotlib.org/stable/gallery/color/colormap_reference.html
-    cmaps = [('Perceptually Uniform Sequential', [
-        'viridis', 'plasma', 'inferno', 'magma', 'cividis']),
-        ('Sequential', [
-            'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
-            'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
-            'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn']),
-        ('Sequential (2)', [
-            'binary', 'gist_yarg', 'gist_gray', 'gray', 'bone', 'pink',
-            'spring', 'summer', 'autumn', 'winter', 'cool', 'Wistia',
-            'hot', 'afmhot', 'gist_heat', 'copper']),
-        ('Diverging', [
-            'PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu',
-            'RdYlBu', 'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic']),
-        ('Cyclic', ['twilight', 'twilight_shifted', 'hsv']),
-        ('Qualitative', [
-            'Pastel1', 'Pastel2', 'Paired', 'Accent',
-            'Dark2', 'Set1', 'Set2', 'Set3',
-            'tab10', 'tab20', 'tab20b', 'tab20c']),
-        ('Miscellaneous', [
-            'flag', 'prism', 'ocean', 'gist_earth', 'terrain', 'gist_stern',
-            'gnuplot', 'gnuplot2', 'CMRmap', 'cubehelix', 'brg',
-            'gist_rainbow', 'rainbow', 'jet', 'turbo', 'nipy_spectral',
-            'gist_ncar'])]
-    cm = plt.get_cmap('PuRd')
-
-    gradient = np.linspace(0, 1, width)
-    gradient = gradient.reshape((width, -1))
-    color_img = gradient.repeat(height, axis=1).transpose(1, 0)
-    fig, ax = plt.subplots(nrows=1, ncols=1, tight_layout=True)
-    ax.axis('off')
-    plt.imshow(color_img)
-    plt.savefig("./img/color.jpg")
+    plt.savefig(path, dpi=dpi)
 
 
 def my_color(height, width, color_list=[[255, 174, 34], [201, 60, 250], [255, 60, 62], [36, 207, 255], [48, 255, 204]]):
@@ -370,11 +322,6 @@ def my_color(height, width, color_list=[[255, 174, 34], [201, 60, 250], [255, 60
     color[0][width - wn:] = gradient
     # 重复 height 次，填充纵轴
     color = color.repeat(height, axis=0).astype('uint8')
-
-    fig, ax = plt.subplots(nrows=1, ncols=1, tight_layout=True)
-    ax.axis('off')
-    plt.imshow(color)
-    plt.savefig("./img/color.png", dpi=300)
     return color
 
 
@@ -439,13 +386,13 @@ def spilt(a):
     if a % 2 == 0:
         x1 = x2 = a / 2
     else:
-        x1 = math.floor(a / 2)
+        x1 = floor(a / 2)
         x2 = a - x1
     return -x1, x2
 
 
 def dodge(front, back):
-    result = front * 255 / (255 - back)
+    result = front * 255 / (255.0000001 - back)
     result[result > 255] = 255
     result[back == 255] = 255
     return result.astype('uint8')
