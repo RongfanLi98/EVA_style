@@ -16,6 +16,22 @@ All steps is described as following:
 
 ![Result](https://github.com/LeonardLi98/EVA_style/raw/main/img/result.jpg)
 
+# Arguments
+
+The default arguments will take an image named "Asuka.jpg" under ./img (i.e., img is a folder, and it is in the same folder with Asuka.py), and it outputs an image named "result.jpg". The default quality of image is 300 dpi. If you set --sketch=true, it will output temporary files. As for threshold, you can tune it to try different style.
+
+--input, type=str, default="./img/Asuka.jpg", help='Image path'
+
+--out_path, type=str, default="./img", help='Out put path'
+
+--out_name, type=str, default="result.jpg", help='Name of the out put file, including format, e.g., result.jpg.'
+
+--dpi, type=int, default=300, help='DPI, e.g., 300'
+
+--threshold, type=int, default=230, help='In [0, 255]'
+
+--sketch, type=eval, default=False, help='Weather output the sketches, true or false'
+
 # Available requirements
 
 - numpy=1.19.5
