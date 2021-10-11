@@ -12,9 +12,9 @@ All steps is described as following:
 5. Apply mini value filtering;
 6. Apply Overlay, which is however, not work in my code. And I replace it with my own designed Dark Areas Color Algorithm. 
 
-![Original image](https://github.com/LeonardLi98/EVA_style/raw/main/img/Asuka.jpg)
+![Original image](https://github.com/RongfanLi98/EVA_style/raw/main/img/Asuka.jpg)
 
-![Result](https://github.com/LeonardLi98/EVA_style/raw/main/img/result.jpg)
+![Result](https://github.com/RongfanLi98/EVA_style/raw/main/img/result.jpg)
 
 # Arguments
 
